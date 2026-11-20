@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: macos-15
+    runs-on: macos-15-intel   # arm64 runners are capacity-constrained; Intel cross-compiles fine
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
