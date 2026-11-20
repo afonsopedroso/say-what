@@ -1,0 +1,9 @@
+.DS_Store
+build/
+spm/
+out/
+.build/
+Packages/SayWhatKit/.build/
+Packages/SayWhatKit/.swiftpm/
+xcuserdata/
+*.xcuserstate

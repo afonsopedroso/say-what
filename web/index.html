@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Say What</title>
+<meta name="theme-color" content="#ff4d33">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Say What">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: loud, quick, friendly — a tool you grab mid-thought.
+   IDEA: a walkie-talkie: one huge talk button, everything else out of the way.
+   PICTURE: the red talk button with a breathing level ring, filling the first screen.
+   COLOUR and TYPE: Say What red-orange field + white; ink text. Sora 800 for the name, Inter for UI.
+   LAYOUT: one column, button centred in the top band, result card and history below; settings in a sheet. */
+:root{color-scheme:light dark;--red:#ff4d33;--red2:#d92e18;--bg:light-dark(#ffffff,#0f0f11);--ink:light-dark(#141416,#f4f4f5);--mute:light-dark(#6b6b72,#a1a1aa);--card:light-dark(#f4f4f5,#1c1c20);--line:light-dark(#e4e4e7,#2a2a30)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Inter,system-ui,-apple-system,sans-serif;overflow-x:clip}
+button,input,textarea,select{font:inherit;color:inherit}
+.top{background:linear-gradient(180deg,var(--red),var(--red2));color:#fff;padding:calc(env(safe-area-inset-top) + 14px) max(5vw,18px) 34px;border-radius:0 0 32px 32px}
+.bar{display:flex;align-items:center;gap:10px;max-width:640px;margin:0 auto}
+.brand{font:800 26px/1 Sora,system-ui;letter-spacing:-.02em;flex:1}
+.seg{display:flex;background:rgba(0,0,0,.18);border-radius:999px;padding:3px}
+.seg button{border:0;background:none;color:#fff;font-weight:600;font-size:13px;padding:8px 12px;border-radius:999px;min-height:36px;cursor:pointer}
+.seg button[aria-pressed=true]{background:#fff;color:var(--red2)}
+.icon{border:0;background:rgba(0,0,0,.18);color:#fff;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;cursor:pointer}
+.stage{display:grid;place-items:center;padding:30px 0 6px}
+.mic{position:relative;width:min(56vw,220px);aspect-ratio:1;border:0;border-radius:50%;background:none;cursor:pointer;touch-action:manipulation}
+.mic .ring{position:absolute;inset:0;border-radius:50%;background:rgba(255,255,255,.18);transform:scale(var(--lvl,1));transition:transform .1s ease-out}
+.mic .core{position:absolute;inset:14%;border-radius:50%;background:#fff;box-shadow:0 14px 40px rgba(80,10,0,.35);display:grid;place-items:center}
+.mic svg{width:34%;height:34%;fill:var(--red)}
+.mic .stop{width:26%;height:26%;border-radius:10px;background:var(--red);display:none}
+.mic.rec .stop{display:block}.mic.rec svg{display:none}
+.mic.busy .core::after{content:"";width:34%;height:34%;border:5px solid #ffd2c9;border-top-color:var(--red);border-radius:50%;animation:spin .8s linear infinite}
+.mic.busy svg{display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.status{text-align:center;font-weight:600;margin-top:14px;min-height:24px}
+.load{max-width:320px;margin:10px auto 0;font-size:13px;opacity:.9;text-align:center}
+.load .track{height:6px;background:rgba(0,0,0,.2);border-radius:9px;overflow:hidden;margin-top:6px}
+.load .fill{height:100%;width:0;background:#fff;transition:width .2s}
+main{max-width:640px;margin:0 auto;padding:22px max(5vw,18px) calc(env(safe-area-inset-bottom) + 40px)}
+.card{background:var(--card);border-radius:20px;padding:16px}
+.result textarea{width:100%;min-height:120px;border:0;background:none;resize:vertical;font-size:17px;line-height:1.5;outline:none}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.btn{border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:10px 16px;min-height:44px;font-weight:600;cursor:pointer}
+.btn.primary{background:var(--red);border-color:var(--red);color:#fff}
+.btn:focus-visible,.seg button:focus-visible,.mic:focus-visible,.icon:focus-visible{outline:3px solid #ffb4a6;outline-offset:2px}
+.err{color:#e5484d;font-size:14px;text-align:center;margin:10px 0 0}
+h2{font:800 20px/1.2 Sora,system-ui;margin:28px 0 10px}
+.hist{list-style:none;margin:0;padding:0}
+.hist li{padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.hist small{color:var(--mute);font-size:13px}
+.empty{color:var(--mute);font-size:15px}
+.tip{font-size:14px;color:var(--mute);margin-top:18px}
+.tip b{color:var(--ink)}
+dialog{border:0;border-radius:24px 24px 0 0;padding:0;width:100%;max-width:640px;margin:auto auto 0;max-height:88vh;background:var(--bg);color:var(--ink)}
+dialog::backdrop{background:rgba(0,0,0,.45)}
+.sheet{padding:20px max(5vw,18px) calc(env(safe-area-inset-bottom) + 24px);overflow:auto;max-height:88vh}
+.sheet h3{font:800 22px Sora,system-ui;margin:0 0 6px;display:flex;justify-content:space-between;align-items:center}
+.f{margin:16px 0}
+.f label{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+.f select,.f input[type=text],.f input[type=password],.f textarea{width:100%;font-size:16px;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.f .hint{font-size:13px;color:var(--mute);margin-top:5px}
+.check{display:flex;align-items:center;gap:10px;min-height:44px;font-size:15px}
+.check input{width:22px;height:22px;accent-color:var(--red)}
+@media (prefers-reduced-motion:reduce){.mic .ring{transition:none}.mic.busy .core::after{animation:none}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="bar">
+    <div class="brand">Say What</div>
+    <div class="seg" role="group" aria-label="Language">
+      <button data-lang="auto">Auto</button><button data-lang="en">EN</button><button data-lang="pt">PT</button>
+    </div>
+    <button class="icon" id="openSettings" aria-label="Settings">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.4 13a7.5 7.5 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.4 7.4 0 0 0-1.7-1L15 3h-4l-.4 2.9a7.4 7.4 0 0 0-1.7 1l-2.5-1-2 3.5L6.6 11a7.5 7.5 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7.4 7.4 0 0 0 1.7 1L11 21h4l.4-2.9a7.4 7.4 0 0 0 1.7-1l2.5 1 2-3.5zM13 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z" transform="translate(-1 0)"/></svg>
+    </button>
+  </div>
+  <div class="stage">
+    <button class="mic" id="mic" aria-label="Start dictation">
+      <span class="ring"></span>
+      <span class="core">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15a3.5 3.5 0 0 0 3.5-3.5v-6a3.5 3.5 0 1 0-7 0v6A3.5 3.5 0 0 0 12 15zm6-3.5a1 1 0 1 0-2 0 4 4 0 0 1-8 0 1 1 0 1 0-2 0 6 6 0 0 0 5 5.9V20H8.5a1 1 0 1 0 0 2h7a1 1 0 1 0 0-2H13v-2.6a6 6 0 0 0 5-5.9z"/></svg>
+        <span class="stop"></span>
+      </span>
+    </button>
+  </div>
+  <div class="status" id="status">Tap and talk — English or Português</div>
+  <div class="load" id="load" hidden><span id="loadText">Downloading voice model…</span><div class="track"><div class="fill" id="loadFill"></div></div></div>
+</header>
+
+<main>
+  <p class="err" id="err" hidden></p>
+  <section class="card result" id="result" hidden>
+    <textarea id="text" aria-label="Your dictation"></textarea>
+    <div class="row">
+      <button class="btn primary" id="copy">Copy</button>
+      <button class="btn" id="share">Share</button>
+      <button class="btn" id="clear">Clear</button>
+    </div>
+  </section>
+
+  <p class="tip" id="installTip" hidden>Install it: in Safari tap <b>Share</b> → <b>Add to Home Screen</b>. On Mac, hold <b>Space</b> to talk.</p>
+
+  <h2>History</h2>
+  <ul class="hist" id="hist"></ul>
+  <p class="empty" id="histEmpty">Nothing yet — your dictations show up here.</p>
+</main>
+
+<dialog id="settings">
+  <div class="sheet">
+    <h3>Settings <button class="btn" id="closeSettings">Done</button></h3>
+    <div class="f"><label for="engine">Speech recognition</label>
+      <select id="engine"><option value="local">On-device Whisper (private, offline)</option><option value="groq">Groq Turbo (cloud, fastest, best PT-PT)</option></select></div>
+    <div class="f" id="modelField"><label for="model">On-device model</label>
+      <select id="model">
+        <option value="onnx-community/whisper-tiny">Tiny · ~40 MB · fastest</option>
+        <option value="onnx-community/whisper-base">Base · ~80 MB · recommended</option>
+        <option value="onnx-community/whisper-small">Small · ~250 MB · most accurate</option>
+      </select>
+      <div class="hint">Downloads once, then works offline.</div></div>
+    <div class="f"><label for="polish">AI polish</label>
+      <select id="polish"><option value="rules">Rules only (instant)</option><option value="groq">Groq AI (false starts, lists, PT-PT spelling)</option></select></div>
+    <div class="f"><label for="style">Style</label>
+      <select id="style"><option value="natural">Natural</option><option value="formal">Formal</option><option value="casual">Casual (texting)</option></select></div>
+    <div class="f">
+      <label class="check"><input type="checkbox" id="fillers"> Remove filler words (um, uh, hã, tipo…)</label>
+      <label class="check"><input type="checkbox" id="commands"> Voice commands (new line, ponto final, apaga isso…)</label>
+      <label class="check"><input type="checkbox" id="autocopy"> Copy automatically after each dictation</label>
+    </div>
+    <div class="f"><label for="key">Groq API key (optional)</label>
+      <input type="password" id="key" placeholder="gsk_…" autocomplete="off">
+      <div class="hint">Stored only in this browser. Needed for Groq modes.</div></div>
+    <div class="f"><label for="vocab">Vocabulary</label>
+      <textarea id="vocab" rows="2" placeholder="Rovera, Nyxora, Shopify"></textarea>
+      <div class="hint">Names and jargon, comma-separated.</div></div>
+    <div class="f"><label for="reps">Replacements</label>
+      <textarea id="reps" rows="3" placeholder="chat gpt = ChatGPT"></textarea>
+      <div class="hint">One per line: <i>what I say = what to write</i>.</div></div>
+    <div class="f"><label for="snips">Snippets</label>
+      <textarea id="snips" rows="3" placeholder="my email = afonso@example.com"></textarea>
+      <div class="hint">One per line: <i>trigger = full text</i>.</div></div>
+    <button class="btn" id="clearHist">Clear history</button>
+  </div>
+</dialog>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

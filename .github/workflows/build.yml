@@ -1,0 +1,121 @@
+name: Build Say What
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["web/**", "README.md", "*.md"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select newest Xcode
+        run: |
+          XC=$(ls -d /Applications/Xcode_*.app | sort -V | tail -1)
+          echo "Using $XC"
+          sudo xcode-select -s "$XC"
+          xcodebuild -version
+          xcrun --sdk iphoneos --show-sdk-version
+
+      - name: Unit tests (text clean-up)
+        working-directory: Packages/SayWhatKit
+        run: swift test 2>&1 | tee ../../test.log
+
+      - name: Generate Xcode project
+        run: |
+          brew install xcodegen >/dev/null
+          xcodegen generate
+
+      - name: Resolve packages
+        run: xcodebuild -resolvePackageDependencies -project SayWhat.xcodeproj -scheme SayWhat -clonedSourcePackagesDirPath spm
+
+      - name: Build iOS app + keyboard (unsigned)
+        run: |
+          set -o pipefail
+          xcodebuild build -project SayWhat.xcodeproj -scheme SayWhat -configuration Release \
+            -sdk iphoneos -destination 'generic/platform=iOS' -derivedDataPath build \
+            -clonedSourcePackagesDirPath spm -skipPackagePluginValidation -skipMacroValidation \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" 2>&1 | tee ios.log | grep -E "error:|warning: .*(SayWhat|Shared|iOS/)|BUILD" || true
+          test -d "build/Build/Products/Release-iphoneos/SayWhat.app"
+
+      - name: Package IPA (ad-hoc signed with entitlements, ready for Sideloadly / AltStore)
+        run: |
+          APP="build/Build/Products/Release-iphoneos/SayWhat.app"
+          codesign -f -s - --entitlements iOS/Keyboard/SayWhatKeyboard.entitlements "$APP/PlugIns/SayWhatKeyboard.appex"
+          codesign -f -s - --entitlements iOS/App/SayWhat.entitlements "$APP"
+          mkdir -p out/Payload && cp -R "$APP" out/Payload/
+          (cd out && zip -qry SayWhat.ipa Payload)
+          ls -lh out/SayWhat.ipa
+
+      - name: Build Mac app
+        run: |
+          set -o pipefail
+          xcodebuild build -project SayWhat.xcodeproj -scheme SayWhatMac -configuration Release \
+            -destination 'generic/platform=macOS' -derivedDataPath build \
+            -clonedSourcePackagesDirPath spm -skipPackagePluginValidation -skipMacroValidation 2>&1 | tee mac.log | grep -E "error:|BUILD" || true
+          APP="build/Build/Products/Release/Say What.app"
+          test -d "$APP"
+          ditto -c -k --keepParent "$APP" "out/SayWhat-Mac.zip"
+          ls -lh out/SayWhat-Mac.zip
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: SayWhat
+          path: |
+            out/SayWhat.ipa
+            out/SayWhat-Mac.zip
+
+      - name: Publish "latest" release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: Say What (latest build)
+          prerelease: false
+          make_latest: true
+          body: |
+            Automatic build of `${{ github.sha }}`.
+            - **SayWhat.ipa** — iPhone app + Say What keyboard. Install with Sideloadly or AltStore using your Apple ID (see README).
+            - **SayWhat-Mac.zip** — Mac menu-bar app (Apple silicon). Unzip, move to Applications, right-click → Open.
+          files: |
+            out/SayWhat.ipa
+            out/SayWhat-Mac.zip
+
+      - name: Commit generated Xcode project
+        run: |
+          git config user.name "say-what-ci"
+          git config user.email "ci@users.noreply.github.com"
+          git add SayWhat.xcodeproj iOS/App/Info.plist iOS/App/SayWhat.entitlements iOS/Keyboard/Info.plist iOS/Keyboard/SayWhatKeyboard.entitlements macOS/Info.plist
+          if ! git diff --cached --quiet; then
+            git commit -m "Regenerate SayWhat.xcodeproj [skip ci]"
+            git push
+          fi
+
+      - name: Publish build status (for debugging)
+        if: always()
+        run: |
+          mkdir -p /tmp/status
+          {
+            echo "run: ${{ github.run_id }}  sha: ${{ github.sha }}  status: ${{ job.status }}"
+            echo "--- tests"; tail -25 test.log 2>/dev/null
+            echo "--- ios errors"; grep -E "error:" ios.log 2>/dev/null | sort -u | head -80
+            echo "--- ios tail"; tail -30 ios.log 2>/dev/null
+            echo "--- mac errors"; grep -E "error:" mac.log 2>/dev/null | sort -u | head -80
+            echo "--- mac tail"; tail -15 mac.log 2>/dev/null
+          } > /tmp/status/last-build.txt
+          cd /tmp/status
+          git init -q -b ci-status
+          git config user.name "say-what-ci"; git config user.email "ci@users.noreply.github.com"
+          git add . && git commit -qm "build status ${{ github.run_id }}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-status
