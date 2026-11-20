@@ -1,0 +1,721 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		085BA30D17ABCC92AA6CFF3C /* ListsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F91D2EAF99845BFAAB3723 /* ListsViews.swift */; };
+		0DE1F356392FD67527910684 /* WhisperKit in Frameworks */ = {isa = PBXBuildFile; productRef = 40D1CB7F6782D1F2B7623E88 /* WhisperKit */; };
+		18DA5BE5DCAD174EC31112B7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59093BA0736F1DA49533EDE /* Theme.swift */; };
+		1D51BC87E077F752FC2552C2 /* MacViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03342018DA72AF87C5286BB3 /* MacViews.swift */; };
+		495ACA92D7CAF2C206B2C1FD /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0A7FBBFE967600C2123B98 /* KeyboardView.swift */; };
+		4BBA7B5B33F20039F2ABF122 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8012EFCAF4A41230C45B384 /* KeyboardViewController.swift */; };
+		4EB16C35AF1BC2AF09AA0D0A /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2FDC31FAA2C097D594A04A /* AudioRecorder.swift */; };
+		57342F6C4DB1778831C128DF /* Polisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCE026ABBC7D671C31E39B2 /* Polisher.swift */; };
+		617E5A22FB32A29B49C79A9A /* SayWhatKeyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 32725A64A7FED4F4549169E3 /* SayWhatKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		65316A26C2FF066C58BB1778 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2FDC31FAA2C097D594A04A /* AudioRecorder.swift */; };
+		6A88B2F196A55AD5FF515B5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 665695B7CFF68362B51D47DA /* Assets.xcassets */; };
+		6BB8537D05B68138CB84DDEE /* WhisperKit in Frameworks */ = {isa = PBXBuildFile; productRef = 439BA66223FAB18BE2B04749 /* WhisperKit */; };
+		7AF1799AFC3AE7B92FBD3538 /* SayWhatKit in Frameworks */ = {isa = PBXBuildFile; productRef = 494AF451CFC09D357DB31A07 /* SayWhatKit */; };
+		800D0A7618393116DCDA2CCF /* SayWhatKit in Frameworks */ = {isa = PBXBuildFile; productRef = 40EB674FB1FF5A702522C985 /* SayWhatKit */; };
+		8D751A4FAC8DCCDBAAD56C54 /* Polisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCE026ABBC7D671C31E39B2 /* Polisher.swift */; };
+		9ADEEDC3FE9B321ED1F36A19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9336D7149FC8D56B4A8B6F3 /* Assets.xcassets */; };
+		9FBBEE2830373B84ECEABD81 /* Transcriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83994C83A37D44CB846419C1 /* Transcriber.swift */; };
+		A60D9C0042AFACBF19B4DB45 /* KeyboardSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498EEAC300A2CE05543E4E2D /* KeyboardSession.swift */; };
+		B3CC4B9497C3692391224488 /* SayWhatMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD37AD5572B6FAECB473F96 /* SayWhatMacApp.swift */; };
+		BF4FC74EDB014BF6BC13CC28 /* DictationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48731938AEC4B8DE401AB3CC /* DictationEngine.swift */; };
+		C0CF780DDC5D7575D05BCEDD /* SayWhatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CA6742F156D4D990CCBD27 /* SayWhatApp.swift */; };
+		CF4B536E5D70FB43B48E8052 /* DictationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48731938AEC4B8DE401AB3CC /* DictationEngine.swift */; };
+		D2EC2723DF14C813315A2852 /* SayWhatKit in Frameworks */ = {isa = PBXBuildFile; productRef = B7CD708CAA7BEB31C907E9F9 /* SayWhatKit */; };
+		F0559132A5CAA561306C6E3B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E32E96687309D1EF254A804 /* SettingsView.swift */; };
+		FC54178568786A6DB654B08E /* DictateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C2BE60AE13054390749A5C /* DictateView.swift */; };
+		FC5698916E65D2735405C9F7 /* Transcriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83994C83A37D44CB846419C1 /* Transcriber.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B6D6BF1E5E108FFBE728C605 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 842861EE152B4DB12BFD45A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9878A48DD18E95F56CB54F87;
+			remoteInfo = SayWhatKeyboard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		00E174F5BAEEBF28CDAC93E9 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				617E5A22FB32A29B49C79A9A /* SayWhatKeyboard.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		03342018DA72AF87C5286BB3 /* MacViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacViews.swift; sourceTree = "<group>"; };
+		0CCB049602E95D4270EE3144 /* SayWhatKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SayWhatKeyboard.entitlements; sourceTree = "<group>"; };
+		32725A64A7FED4F4549169E3 /* SayWhatKeyboard.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = SayWhatKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		38155A7E885533CEB41FC679 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		48731938AEC4B8DE401AB3CC /* DictationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictationEngine.swift; sourceTree = "<group>"; };
+		498EEAC300A2CE05543E4E2D /* KeyboardSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardSession.swift; sourceTree = "<group>"; };
+		665695B7CFF68362B51D47DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6CCE026ABBC7D671C31E39B2 /* Polisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polisher.swift; sourceTree = "<group>"; };
+		83994C83A37D44CB846419C1 /* Transcriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transcriber.swift; sourceTree = "<group>"; };
+		86B4B272354588AA6385C3AA /* SayWhatMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SayWhatMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		87F187DDF2658FE05BF2E5CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9E32E96687309D1EF254A804 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A7C2BE60AE13054390749A5C /* DictateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictateView.swift; sourceTree = "<group>"; };
+		A9336D7149FC8D56B4A8B6F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AD0A7FBBFE967600C2123B98 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		B59093BA0736F1DA49533EDE /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		C2F91D2EAF99845BFAAB3723 /* ListsViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViews.swift; sourceTree = "<group>"; };
+		C9CA6742F156D4D990CCBD27 /* SayWhatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayWhatApp.swift; sourceTree = "<group>"; };
+		CD8DE8B96797800A9D4D351B /* SayWhat.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SayWhat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2E4C27C68FF5B5C057609D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DC71DF36A076FDA7E876340F /* SayWhat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SayWhat.entitlements; sourceTree = "<group>"; };
+		DE2FDC31FAA2C097D594A04A /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
+		E0952F5D97350DA83B992963 /* SayWhatKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SayWhatKit; path = Packages/SayWhatKit; sourceTree = SOURCE_ROOT; };
+		EDD37AD5572B6FAECB473F96 /* SayWhatMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayWhatMacApp.swift; sourceTree = "<group>"; };
+		F8012EFCAF4A41230C45B384 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5EBB740B56703CF2574330DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				800D0A7618393116DCDA2CCF /* SayWhatKit in Frameworks */,
+				6BB8537D05B68138CB84DDEE /* WhisperKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A69BA7145DCA7E1EB06C90A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AF1799AFC3AE7B92FBD3538 /* SayWhatKit in Frameworks */,
+				0DE1F356392FD67527910684 /* WhisperKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C84180DD3B4DF9DB993C9921 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2EC2723DF14C813315A2852 /* SayWhatKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F3E841B1A5E79802C7D30C2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD8DE8B96797800A9D4D351B /* SayWhat.app */,
+				32725A64A7FED4F4549169E3 /* SayWhatKeyboard.appex */,
+				86B4B272354588AA6385C3AA /* SayWhatMac.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		45E498B797C0023DD34D94C0 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				E4588E1AA51284F72D579433 /* App */,
+				87BADD5A69E998603051AAD7 /* Keyboard */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		7C7BA806969BA6285B8F8260 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				E0952F5D97350DA83B992963 /* SayWhatKit */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		87BADD5A69E998603051AAD7 /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				D2E4C27C68FF5B5C057609D3 /* Info.plist */,
+				AD0A7FBBFE967600C2123B98 /* KeyboardView.swift */,
+				F8012EFCAF4A41230C45B384 /* KeyboardViewController.swift */,
+				0CCB049602E95D4270EE3144 /* SayWhatKeyboard.entitlements */,
+			);
+			path = Keyboard;
+			sourceTree = "<group>";
+		};
+		B44E42116BE9AE1E8304BB81 = {
+			isa = PBXGroup;
+			children = (
+				45E498B797C0023DD34D94C0 /* iOS */,
+				BE52A51AA9032795F886B5F5 /* macOS */,
+				7C7BA806969BA6285B8F8260 /* Packages */,
+				CE8805E3C3839415D38157B6 /* Shared */,
+				1F3E841B1A5E79802C7D30C2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BE52A51AA9032795F886B5F5 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				665695B7CFF68362B51D47DA /* Assets.xcassets */,
+				38155A7E885533CEB41FC679 /* Info.plist */,
+				03342018DA72AF87C5286BB3 /* MacViews.swift */,
+				EDD37AD5572B6FAECB473F96 /* SayWhatMacApp.swift */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		CE8805E3C3839415D38157B6 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				DE2FDC31FAA2C097D594A04A /* AudioRecorder.swift */,
+				48731938AEC4B8DE401AB3CC /* DictationEngine.swift */,
+				6CCE026ABBC7D671C31E39B2 /* Polisher.swift */,
+				83994C83A37D44CB846419C1 /* Transcriber.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		E4588E1AA51284F72D579433 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A9336D7149FC8D56B4A8B6F3 /* Assets.xcassets */,
+				A7C2BE60AE13054390749A5C /* DictateView.swift */,
+				87F187DDF2658FE05BF2E5CD /* Info.plist */,
+				498EEAC300A2CE05543E4E2D /* KeyboardSession.swift */,
+				C2F91D2EAF99845BFAAB3723 /* ListsViews.swift */,
+				DC71DF36A076FDA7E876340F /* SayWhat.entitlements */,
+				C9CA6742F156D4D990CCBD27 /* SayWhatApp.swift */,
+				9E32E96687309D1EF254A804 /* SettingsView.swift */,
+				B59093BA0736F1DA49533EDE /* Theme.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		33FA77D9D605AEE4FFF82328 /* SayWhatMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAFBF85BF171546D5FE0F6EF /* Build configuration list for PBXNativeTarget "SayWhatMac" */;
+			buildPhases = (
+				C58B757A727AD7BC298BDCC4 /* Sources */,
+				1F4CB270490E44EA7CD41B6D /* Resources */,
+				5EBB740B56703CF2574330DC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SayWhatMac;
+			packageProductDependencies = (
+				40EB674FB1FF5A702522C985 /* SayWhatKit */,
+				439BA66223FAB18BE2B04749 /* WhisperKit */,
+			);
+			productName = SayWhatMac;
+			productReference = 86B4B272354588AA6385C3AA /* SayWhatMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9878A48DD18E95F56CB54F87 /* SayWhatKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF16AD95260004A85C102CC1 /* Build configuration list for PBXNativeTarget "SayWhatKeyboard" */;
+			buildPhases = (
+				6BE7A70E038E3047D8D50D06 /* Sources */,
+				C84180DD3B4DF9DB993C9921 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SayWhatKeyboard;
+			packageProductDependencies = (
+				B7CD708CAA7BEB31C907E9F9 /* SayWhatKit */,
+			);
+			productName = SayWhatKeyboard;
+			productReference = 32725A64A7FED4F4549169E3 /* SayWhatKeyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		AAA0E18A60F27912BDDE556B /* SayWhat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7AA6AC14B65F19268328760 /* Build configuration list for PBXNativeTarget "SayWhat" */;
+			buildPhases = (
+				518706878D89ADE1A14DD5F3 /* Sources */,
+				31D1C54F0D18A3475784EB69 /* Resources */,
+				A69BA7145DCA7E1EB06C90A2 /* Frameworks */,
+				00E174F5BAEEBF28CDAC93E9 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BFCD863930C21D145B60AF3 /* PBXTargetDependency */,
+			);
+			name = SayWhat;
+			packageProductDependencies = (
+				494AF451CFC09D357DB31A07 /* SayWhatKit */,
+				40D1CB7F6782D1F2B7623E88 /* WhisperKit */,
+			);
+			productName = SayWhat;
+			productReference = CD8DE8B96797800A9D4D351B /* SayWhat.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		842861EE152B4DB12BFD45A7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					33FA77D9D605AEE4FFF82328 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+					9878A48DD18E95F56CB54F87 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					AAA0E18A60F27912BDDE556B = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 332771F523CF2A0E6267BE6D /* Build configuration list for PBXProject "SayWhat" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = B44E42116BE9AE1E8304BB81;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				12E0F8E4DF4FB369D0677053 /* XCRemoteSwiftPackageReference "WhisperKit" */,
+				0CA546F3B344401B6391354B /* XCLocalSwiftPackageReference "Packages/SayWhatKit" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 1F3E841B1A5E79802C7D30C2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAA0E18A60F27912BDDE556B /* SayWhat */,
+				9878A48DD18E95F56CB54F87 /* SayWhatKeyboard */,
+				33FA77D9D605AEE4FFF82328 /* SayWhatMac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1F4CB270490E44EA7CD41B6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A88B2F196A55AD5FF515B5C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31D1C54F0D18A3475784EB69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9ADEEDC3FE9B321ED1F36A19 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		518706878D89ADE1A14DD5F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EB16C35AF1BC2AF09AA0D0A /* AudioRecorder.swift in Sources */,
+				FC54178568786A6DB654B08E /* DictateView.swift in Sources */,
+				CF4B536E5D70FB43B48E8052 /* DictationEngine.swift in Sources */,
+				A60D9C0042AFACBF19B4DB45 /* KeyboardSession.swift in Sources */,
+				085BA30D17ABCC92AA6CFF3C /* ListsViews.swift in Sources */,
+				8D751A4FAC8DCCDBAAD56C54 /* Polisher.swift in Sources */,
+				C0CF780DDC5D7575D05BCEDD /* SayWhatApp.swift in Sources */,
+				F0559132A5CAA561306C6E3B /* SettingsView.swift in Sources */,
+				18DA5BE5DCAD174EC31112B7 /* Theme.swift in Sources */,
+				FC5698916E65D2735405C9F7 /* Transcriber.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BE7A70E038E3047D8D50D06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				495ACA92D7CAF2C206B2C1FD /* KeyboardView.swift in Sources */,
+				4BBA7B5B33F20039F2ABF122 /* KeyboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C58B757A727AD7BC298BDCC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65316A26C2FF066C58BB1778 /* AudioRecorder.swift in Sources */,
+				BF4FC74EDB014BF6BC13CC28 /* DictationEngine.swift in Sources */,
+				1D51BC87E077F752FC2552C2 /* MacViews.swift in Sources */,
+				57342F6C4DB1778831C128DF /* Polisher.swift in Sources */,
+				B3CC4B9497C3692391224488 /* SayWhatMacApp.swift in Sources */,
+				9FBBEE2830373B84ECEABD81 /* Transcriber.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3BFCD863930C21D145B60AF3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9878A48DD18E95F56CB54F87 /* SayWhatKeyboard */;
+			targetProxy = B6D6BF1E5E108FFBE728C605 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5656E057C74A1BD65E3BB966 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = iOS/Keyboard/SayWhatKeyboard.entitlements;
+				INFOPLIST_FILE = iOS/Keyboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.afonsopedroso.saywhat.keyboard;
+				PRODUCT_NAME = SayWhatKeyboard;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		81334C3EB16F497B4699AC6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BC79F1EAD3633AA88FC1DC2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		DC1E1DBDACB84C74D3671EE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = iOS/Keyboard/SayWhatKeyboard.entitlements;
+				INFOPLIST_FILE = iOS/Keyboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.afonsopedroso.saywhat.keyboard;
+				PRODUCT_NAME = SayWhatKeyboard;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		DDE3A9A1643CB4F2787A5FA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.afonsopedroso.saywhat.mac;
+				PRODUCT_NAME = "Say What";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		FBC618BE72201D313FFA5A7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iOS/App/SayWhat.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = iOS/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.afonsopedroso.saywhat;
+				PRODUCT_NAME = SayWhat;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		FD107245BD6027CD078E43FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iOS/App/SayWhat.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = iOS/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.afonsopedroso.saywhat;
+				PRODUCT_NAME = SayWhat;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		FD1454CA54100744F7304A0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.afonsopedroso.saywhat.mac;
+				PRODUCT_NAME = "Say What";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		332771F523CF2A0E6267BE6D /* Build configuration list for PBXProject "SayWhat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81334C3EB16F497B4699AC6D /* Debug */,
+				BC79F1EAD3633AA88FC1DC2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AAFBF85BF171546D5FE0F6EF /* Build configuration list for PBXNativeTarget "SayWhatMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDE3A9A1643CB4F2787A5FA6 /* Debug */,
+				FD1454CA54100744F7304A0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E7AA6AC14B65F19268328760 /* Build configuration list for PBXNativeTarget "SayWhat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBC618BE72201D313FFA5A7D /* Debug */,
+				FD107245BD6027CD078E43FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FF16AD95260004A85C102CC1 /* Build configuration list for PBXNativeTarget "SayWhatKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC1E1DBDACB84C74D3671EE4 /* Debug */,
+				5656E057C74A1BD65E3BB966 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		0CA546F3B344401B6391354B /* XCLocalSwiftPackageReference "Packages/SayWhatKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/SayWhatKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		12E0F8E4DF4FB369D0677053 /* XCRemoteSwiftPackageReference "WhisperKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/argmaxinc/WhisperKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		40D1CB7F6782D1F2B7623E88 /* WhisperKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12E0F8E4DF4FB369D0677053 /* XCRemoteSwiftPackageReference "WhisperKit" */;
+			productName = WhisperKit;
+		};
+		40EB674FB1FF5A702522C985 /* SayWhatKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SayWhatKit;
+		};
+		439BA66223FAB18BE2B04749 /* WhisperKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12E0F8E4DF4FB369D0677053 /* XCRemoteSwiftPackageReference "WhisperKit" */;
+			productName = WhisperKit;
+		};
+		494AF451CFC09D357DB31A07 /* SayWhatKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SayWhatKit;
+		};
+		B7CD708CAA7BEB31C907E9F9 /* SayWhatKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SayWhatKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 842861EE152B4DB12BFD45A7 /* Project object */;
+}
