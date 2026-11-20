@@ -105,6 +105,7 @@ jobs:
       - name: Publish build status (for debugging)
         if: always()
         run: |
+          set +e +o pipefail
           mkdir -p /tmp/status
           {
             echo "run: ${{ github.run_id }}  sha: ${{ github.sha }}  status: ${{ job.status }}"

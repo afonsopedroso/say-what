@@ -51,12 +51,16 @@ final class KeyboardViewController: UIInputViewController {
         }
     }
 
-    /// Keyboards can't call UIApplication.shared, but the responder chain still reaches the host app's UIApplication.
+    /// Keyboards can't call UIApplication.shared, but the host app's UIApplication is in the responder chain.
+    /// We call -openURL:options:completionHandler: on it dynamically (the technique dictation keyboards use).
     func openContainingApp(_ url: URL) {
+        let selector = NSSelectorFromString("openURL:options:completionHandler:")
         var responder: UIResponder? = self
         while let r = responder {
-            if let app = r as? UIApplication {
-                app.open(url, options: [:], completionHandler: nil)
+            if r.isKind(of: UIApplication.self), let method = class_getInstanceMethod(type(of: r), selector) {
+                typealias OpenURL = @convention(c) (AnyObject, Selector, NSURL, NSDictionary, AnyObject?) -> Void
+                let open = unsafeBitCast(method_getImplementation(method), to: OpenURL.self)
+                open(r, selector, url as NSURL, NSDictionary(), nil)
                 return
             }
             responder = r.next

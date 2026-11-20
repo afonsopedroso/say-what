@@ -99,8 +99,7 @@ targets:
         PRODUCT_NAME: SayWhatKeyboard
         PRODUCT_BUNDLE_IDENTIFIER: com.afonsopedroso.saywhat.keyboard
         TARGETED_DEVICE_FAMILY: "1"
-        # The keyboard opens the app via the responder chain (same technique Wispr Flow uses).
-        APPLICATION_EXTENSION_API_ONLY: NO
+        APPLICATION_EXTENSION_API_ONLY: YES
 
   SayWhatMac:
     type: application
