@@ -1,0 +1,76 @@
+run: 44785280534  sha: 7338b07555a4af85abdaff9cc3397c37e03a1122  status: success
+--- tests
+Test Case '-[SayWhatKitTests.TextCleanerTests testFillersEnglish]' passed (0.008 seconds).
+Test Case '-[SayWhatKitTests.TextCleanerTests testFillersPortuguese]' started.
+Test Case '-[SayWhatKitTests.TextCleanerTests testFillersPortuguese]' passed (0.005 seconds).
+Test Case '-[SayWhatKitTests.TextCleanerTests testFit]' started.
+Test Case '-[SayWhatKitTests.TextCleanerTests testFit]' passed (0.000 seconds).
+Test Case '-[SayWhatKitTests.TextCleanerTests testHallucinations]' started.
+Test Case '-[SayWhatKitTests.TextCleanerTests testHallucinations]' passed (0.002 seconds).
+Test Case '-[SayWhatKitTests.TextCleanerTests testPunctuationTidy]' started.
+Test Case '-[SayWhatKitTests.TextCleanerTests testPunctuationTidy]' passed (0.006 seconds).
+Test Case '-[SayWhatKitTests.TextCleanerTests testReplacementsAndSnippets]' started.
+Test Case '-[SayWhatKitTests.TextCleanerTests testReplacementsAndSnippets]' passed (0.004 seconds).
+Test Case '-[SayWhatKitTests.TextCleanerTests testStyles]' started.
+Test Case '-[SayWhatKitTests.TextCleanerTests testStyles]' passed (0.007 seconds).
+Test Case '-[SayWhatKitTests.TextCleanerTests testVoiceCommands]' started.
+Test Case '-[SayWhatKitTests.TextCleanerTests testVoiceCommands]' passed (0.010 seconds).
+Test Suite 'TextCleanerTests' passed at 2026-11-20 17:39:50.957.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.042 (0.044) seconds
+Test Suite 'SayWhatKitPackageTests.xctest' passed at 2026-11-20 17:39:50.958.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.042 (0.044) seconds
+Test Suite 'All tests' passed at 2026-11-20 17:39:50.958.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.042 (0.046) seconds
+◇ Test run started.
+↳ Testing Library Version: 1501
+↳ Target Platform: x86_64-apple-macos14.0
+✔ Test run with 0 tests in 0 suites passed after 0.001 seconds.
+--- ios errors
+--- ios tail
+2026-11-20 17:42:20.672 appintentsmetadataprocessor[5922:21259] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+ValidateEmbeddedBinary /Users/runner/work/say-what/say-what/build/Build/Products/Release-iphoneos/SayWhat.app/PlugIns/SayWhatKeyboard.appex (in target 'SayWhat' from project 'SayWhat')
+    cd /Users/runner/work/say-what/say-what
+    /Applications/Xcode_26.3.app/Contents/Developer/usr/bin/embeddedBinaryValidationUtility /Users/runner/work/say-what/say-what/build/Build/Products/Release-iphoneos/SayWhat.app/PlugIns/SayWhatKeyboard.appex -info-plist-path /Users/runner/work/say-what/say-what/build/Build/Products/Release-iphoneos/SayWhat.app/Info.plist
+
+GenerateDSYMFile /Users/runner/work/say-what/say-what/build/Build/Products/Release-iphoneos/SayWhat.app.dSYM /Users/runner/work/say-what/say-what/build/Build/Products/Release-iphoneos/SayWhat.app/SayWhat (in target 'SayWhat' from project 'SayWhat')
+    cd /Users/runner/work/say-what/say-what
+    /Applications/Xcode_26.3.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/runner/work/say-what/say-what/build/Build/Products/Release-iphoneos/SayWhat.app/SayWhat -o /Users/runner/work/say-what/say-what/build/Build/Products/Release-iphoneos/SayWhat.app.dSYM
+
+AppIntentsSSUTraining (in target 'SayWhat' from project 'SayWhat')
+    cd /Users/runner/work/say-what/say-what
+    /Applications/Xcode_26.3.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsnltrainingprocessor --infoplist-path /Users/runner/work/say-what/say-what/build/Build/Products/Release-iphoneos/SayWhat.app/Info.plist --temp-dir-path /Users/runner/work/say-what/say-what/build/Build/Intermediates.noindex/SayWhat.build/Release-iphoneos/SayWhat.build/ssu --bundle-id com.afonsopedroso.saywhat --product-path /Users/runner/work/say-what/say-what/build/Build/Products/Release-iphoneos/SayWhat.app --extracted-metadata-path /Users/runner/work/say-what/say-what/build/Build/Products/Release-iphoneos/SayWhat.app/Metadata.appintents --metadata-file-list /Users/runner/work/say-what/say-what/build/Build/Intermediates.noindex/SayWhat.build/Release-iphoneos/SayWhat.build/SayWhat.DependencyMetadataFileList --archive-ssu-assets
+2026-11-20 17:42:20.717 appintentsnltrainingprocessor[5925:21262] Parsing options for appintentsnltrainingprocessor
+2026-11-20 17:42:20.720 appintentsnltrainingprocessor[5925:21262] No AppShortcuts found - Skipping.
+
+RegisterExecutionPolicyException /Users/runner/work/say-what/say-what/build/Build/Products/Release-iphoneos/SayWhat.app (in target 'SayWhat' from project 'SayWhat')
+    cd /Users/runner/work/say-what/say-what
+    builtin-RegisterExecutionPolicyException /Users/runner/work/say-what/say-what/build/Build/Products/Release-iphoneos/SayWhat.app
+
+Validate /Users/runner/work/say-what/say-what/build/Build/Products/Release-iphoneos/SayWhat.app (in target 'SayWhat' from project 'SayWhat')
+    cd /Users/runner/work/say-what/say-what
+    builtin-validationUtility /Users/runner/work/say-what/say-what/build/Build/Products/Release-iphoneos/SayWhat.app -shallow-bundle -infoplist-subpath Info.plist
+
+Touch /Users/runner/work/say-what/say-what/build/Build/Products/Release-iphoneos/SayWhat.app (in target 'SayWhat' from project 'SayWhat')
+    cd /Users/runner/work/say-what/say-what
+    /usr/bin/touch -c /Users/runner/work/say-what/say-what/build/Build/Products/Release-iphoneos/SayWhat.app
+
+** BUILD SUCCEEDED **
+
+--- mac errors
+--- mac tail
+
+Validate /Users/runner/work/say-what/say-what/build/Build/Products/Release/Say\ What.app (in target 'SayWhatMac' from project 'SayWhat')
+    cd /Users/runner/work/say-what/say-what
+    builtin-validationUtility /Users/runner/work/say-what/say-what/build/Build/Products/Release/Say\ What.app -no-validate-extension -infoplist-subpath Contents/Info.plist
+
+Touch /Users/runner/work/say-what/say-what/build/Build/Products/Release/Say\ What.app (in target 'SayWhatMac' from project 'SayWhat')
+    cd /Users/runner/work/say-what/say-what
+    /usr/bin/touch -c /Users/runner/work/say-what/say-what/build/Build/Products/Release/Say\ What.app
+
+RegisterWithLaunchServices /Users/runner/work/say-what/say-what/build/Build/Products/Release/Say\ What.app (in target 'SayWhatMac' from project 'SayWhat')
+    cd /Users/runner/work/say-what/say-what
+    /System/Library/Frameworks/CoreServices.framework/Versions/Current/Frameworks/LaunchServices.framework/Versions/Current/Support/lsregister -f -R -trusted /Users/runner/work/say-what/say-what/build/Build/Products/Release/Say\ What.app
+
+** BUILD SUCCEEDED **
+
